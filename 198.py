@@ -20,3 +20,11 @@ class Solution:
                 localMax1 = localMax2
             #localMax1, localMax2 = localMax2, max(nums[i] + localMax1, localMax2) best
         return localMax2
+
+
+class Solution:
+    def rob(self, nums: List[int]) -> int:
+        dp = [0] * (len(nums) + 2)
+        for i in range(len(nums)):
+            dp[i+2] = max(dp[i] + nums[i], dp[i+1])
+        return dp[-1]
