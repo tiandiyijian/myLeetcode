@@ -6,5 +6,6 @@
         "utility": "cpp",
         "stack": "cpp"
     },
-    "python.jediEnabled": false
+    "python.jediEnabled": false,
+    "python.languageServer": "Microsoft"
 }
