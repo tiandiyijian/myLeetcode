@@ -1,3 +1,6 @@
+from typing import List
+
+
 class Solution:
     def wordBreak(self, s, wordDict) -> bool:
         self.mem = {"":True}
@@ -22,6 +25,34 @@ class Solution:
                 return True
         self.mem[s] = False
         return False
+
+
+class Solution:
+    def wordBreak(self, s: str, wordDict: List[str]) -> bool:
+        self.ans = False
+        def helper(start):
+            if s[start:] in wordDict:
+                self.ans = True
+                return
+            for i in range(start+1, len(s)):
+                if s[start:i] in wordDict:
+                    print(s[start:i])
+                    helper(i)
+        helper(0)
+        return self.ans
+
+
+class Solution:
+    def wordBreak(self, s: str, wordDict: List[str]) -> bool:
+        mem = [0]
+        wordDict = set(wordDict)
+        for i in range(1, len(s)+1):
+            for j in range(len(mem)):
+                if s[mem[j]:i] in wordDict:
+                    mem.append(i)
+                    break
+        return mem[-1] == len(s)
+
 
 if __name__ == '__main__':
     a = Solution()
