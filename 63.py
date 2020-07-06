@@ -1,36 +1,29 @@
+from typing import List
+
+
 class Solution:
-    def uniquePathsWithObstacles(self, obstacleGrid):
-        """
-        :type obstacleGrid: List[List[int]]
-        :rtype: int
+    def uniquePathsWithObstacles(self, obstacleGrid: List[List[int]]) -> int:
+        if obstacleGrid[0][0] == 1:
+            return 0
+        m = len(obstacleGrid)
+        n = len(obstacleGrid[0])
+        dp = [[0] * n for _ in range(m)]
+        dp[0][0] = 1
+        for i in range(m):
+            for j in range(n):
+                if obstacleGrid[i][j] == 0:
+                    if i > 0:
+                        dp[i][j] += dp[i-1][j]
+                    if j > 0:
+                        dp[i][j] += dp[i][j-1]
+        return dp[-1][-1]
 
-        if obstacleGrid == [[1]] :
-            return 0
-        row = len(obstacleGrid)
-        if row == 0:
-            return 0
-        col = len(obstacleGrid[0])
-        self.sum = 0
-        self.walk(0, 0, row - 1, col - 1, obstacleGrid)
-        return self.sum
 
-    def walk(self, i, j, ti, tj, grid):
-        if i == ti and j == tj:
-            self.sum += 1
-        if i < ti and grid[i+1][j] == 0:
-            self.walk(i+1, j, ti, tj, grid)
-        if j < tj and grid[i][j+1] == 0:
-            self.walk(i, j+1, ti, tj, grid)
-        """
-        row = len(obstacleGrid)
-        if row == 0 or obstacleGrid[0][0] == 1:
-            return 0
-        col = len(obstacleGrid[0])
-        res = [[0 for i in range(col) for j in range(row)]]
-        res[1][1] = 1
-        for i in range(1, row + 1):
-            for j in range(1, col + 1):
-                if obstacleGrid[i-1][j-1] == 0:
-                    res[i][j] += res[i-1][j]
-                    res[i][j] += res[i][j-1]
-        return res[row][col]
+if __name__ == "__main__":
+    s = Solution()
+    b = [
+        [0, 0, 0],
+        [0, 1, 0],
+        [0, 0, 0]
+    ]
+    print(s.uniquePathsWithObstacles(b))
