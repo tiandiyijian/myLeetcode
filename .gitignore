@@ -1,3 +1,5 @@
 *.exe
 tempCodeRunnerFile*
 __pycache__
+.vscode/
+.idea/
