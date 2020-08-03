@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df0718c2-6fa7-4fb7-af39-0ef1b4310dc0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -79,6 +78,7 @@
   </component>
   <component name="ProjectId" id="1fXrkfoXi1TXHxUr9fUEX1NDNAS" />
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SearchEverywhereHistoryKey" value="heap&#9;null&#9;null" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -104,7 +104,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.114">
+  <component name="RunManager" selected="Python.415">
     <configuration name="leetcode" type="JupiterNotebook" factoryName="Jupyter Notebook">
       <module name="leetcode" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -127,6 +127,9 @@
       <module name="leetcode" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -164,22 +167,19 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="583" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="415" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="leetcode" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/583.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/415.py" />
       <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
       <option name="REDIRECT_INPUT" value="false" />
@@ -277,18 +277,18 @@
     <list>
       <item itemvalue="Python.test" />
       <item itemvalue="Python.72" />
-      <item itemvalue="Python.583" />
       <item itemvalue="Python.688" />
       <item itemvalue="Python.312" />
       <item itemvalue="Python.114" />
+      <item itemvalue="Python.415" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.415" />
         <item itemvalue="Python.114" />
         <item itemvalue="Python.312" />
         <item itemvalue="Python.72" />
         <item itemvalue="Python.688" />
-        <item itemvalue="Python.583" />
       </list>
     </recent_temporary>
   </component>
@@ -302,7 +302,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1541651944260</updated>
-      <workItem from="1596375424721" duration="2479000" />
+      <workItem from="1596375424721" duration="2676000" />
+      <workItem from="1596460616677" duration="2793000" />
     </task>
     <servers />
   </component>
@@ -314,7 +315,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
