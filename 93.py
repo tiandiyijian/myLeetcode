@@ -1,3 +1,6 @@
+from typing import List
+
+
 class Solution:
     def restoreIpAddresses(self, s):
         """
@@ -30,6 +33,30 @@ class Solution:
         print(ans)
         return ans
 
+    def restoreIpAddresses1(self, s: str) -> List[str]:
+        if len(s) < 4:
+            return []
+        ans = []
+        def helper(s, count=0, pre=''):
+            nonlocal ans
+            if count == 3:
+                if s[0] == '0' and len(s) > 1:
+                    return
+                if int(s) < 256:
+                    # print(s, pre)
+                    ans.append(pre+s)
+                return
+            length = len(s)
+            if s[0] == '0':
+                helper(s[1:], count + 1, pre + s[0] + '.')
+                return
+            for i in range(length - (4- count) + 1):
+                if 0 < int(s[:i+1]) < 256:
+                    helper(s[i+1:], count + 1, pre+s[:i+1] + '.')
+        
+        helper(s)
+        return ans
+
 if __name__ == '__main__':
     a = Solution()
-    a.restoreIpAddresses('123234124234')
+    print(a.restoreIpAddresses1("010010"))
