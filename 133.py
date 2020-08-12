@@ -39,4 +39,20 @@ class Solution:
                 queue.append(n)
                 t.neighbors.append(nodeToNode[n])
         return nodeToNode[node]
+    
+    def cloneGraph3(self, node: 'Node') -> 'Node':
+        if not node:
+            return None
+        history = {}
+        def dfs(node):
+            tmp = history.get(node, None)
+            if tmp:
+                return tmp
+            new_node = Node(node.val)
+            history[node] = new_node
+            for n in node.neighbors:
+                tmp_neighbor = dfs(n)
+                new_node.neighbors.append(tmp_neighbor)
+            return new_node
+        return dfs(node)  
 
