@@ -1,3 +1,6 @@
+import collections
+from typing import List
+
 class TreeNode:
     def __init__(self, x):
         self.val = x
@@ -23,3 +26,22 @@ class Solution:
             nodes = nodesOfNextRow
             res.append(valsOfOneRow)
         return res[::-1]
+
+    def levelOrderBottom2(self, root: TreeNode) -> List[List[int]]:
+        if not root:
+            return []
+        ans = []
+        q = collections.deque()
+        q.append(root)
+        while q:
+            tmp_len = len(q)
+            layer = []
+            for _ in range(tmp_len):
+                node = q.pop()
+                if node.left:
+                    q.appendleft(node.left)
+                if node.right:
+                    q.appendleft(node.right)
+                layer.append(node.val)
+            ans.append(layer)
+        return ans[::-1]    
