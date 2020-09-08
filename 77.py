@@ -1,3 +1,6 @@
+from typing import List
+
+
 class Solution:
     def combine(self, n, k):
         """
@@ -22,9 +25,23 @@ class Solution:
         helper(0, [], k)
         return ans
 
+    def combine2(self, n: int, k: int) -> List[List[int]]:
+        ans = []
+        nums = list(range(1, n + 1))
+
+        def dfs(start, tmp):
+            if len(tmp) == k:
+                ans.append(tmp)
+                return
+            for i in range(start, len(nums)):
+                dfs(i + 1, tmp + [nums[i]])
+
+        dfs(0, [])
+        return ans
+
 if __name__ == "__main__":
     s = Solution()
-    print(s.combine(3, 2))
+    print(s.combine2(3, 2))
 
 
 
