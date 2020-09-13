@@ -102,6 +102,42 @@ class Solution:
                     if findWord([(i,j)], board, word, indexs):
                         return True
         return False
+    
+    def exist2(self, board, word: str) -> bool:
+        directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]
+
+        def check(i: int, j: int, k: int) -> bool:
+            if board[i][j] != word[k]:
+                return False
+            if k == len(word) - 1:
+                return True
+            
+            visited.add((i, j))
+            result = False
+            for di, dj in directions:
+                newi, newj = i + di, j + dj
+                if 0 <= newi < len(board) and 0 <= newj < len(board[0]):
+                    if (newi, newj) not in visited:
+                        if check(newi, newj, k + 1):
+                            result = True
+                            break
+            
+            visited.remove((i, j))
+            # 这一行很关键，起初我担心如果记录访问过的节点可能会导致错过答案
+            # 但是要意识到记录访问过的节点的目的是怕图中存在环
+            # 所以递归回溯到一个节点的时候完全可以把这个节点从记录中删除掉
+            # 这样也就不会错过答案
+            return result
+
+        h, w = len(board), len(board[0])
+        visited = set()
+        for i in range(h):
+            for j in range(w):
+                if check(i, j, 0):
+                    return True
+        
+        return False
+    
 
 if __name__ == '__main__':
     board = [["a","a","a","a"], ["a","a","a","a"],["a","a","a","a"]]
