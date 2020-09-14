@@ -28,3 +28,22 @@ class Solution:
         while root:
             stack.append(root)
             root = root.left
+
+    def inorderTraversal2(self, root):
+        ans = []
+        while root:
+            if root.left:
+                pre = root.left
+                while pre.right and pre.right is not root:
+                    pre = pre.right
+                if pre.right is root:
+                    ans.append(root.val)
+                    pre.right = None
+                    root = root.right
+                else:
+                    pre.right = root
+                    root = root.left
+            else:
+                ans.append(root.val)
+                root = root.right
+        return ans    
