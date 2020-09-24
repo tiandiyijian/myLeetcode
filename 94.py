@@ -31,8 +31,8 @@ class Solution:
 
     def inorderTraversal2(self, root):
         ans = []
-            if root.left:
         while root:
+            if root.left:
                 pre = root.left
                 while pre.right and pre.right is not root:
                     pre = pre.right
