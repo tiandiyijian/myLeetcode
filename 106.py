@@ -23,4 +23,16 @@ class Solution:
             return root
 
         return helper(0, len(inorder) - 1)
+    
+    def buildTree2(self, inorder: List[int], postorder: List[int]) -> TreeNode:
+        def build(i1, i2, p1, p2):
+            if i1 > i2:
+                return None
+            root = TreeNode(postorder[p2])
+            root_idx = inorder.index(postorder[p2])
+            root.left = build(i1, root_idx - 1, p1, p1 + root_idx - i1 - 1)
+            root.right = build(root_idx + 1, i2, p1 + root_idx - i1, p2 - 1)
+            return root
+        
+        return build(0, len(inorder) - 1, 0, len(postorder) - 1)
         
