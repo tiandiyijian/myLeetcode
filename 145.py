@@ -35,3 +35,17 @@ class Solution:
             else:
                 s.append(node.right)
         s.pop()
+    
+    def postorderTraversal2(self, root: TreeNode) -> List[int]:
+        if not root:
+            return []
+        s = [root]
+        ans = []
+        while s:
+            node = s.pop()
+            ans.append(node.val)
+            if node.left:
+                s.append(node.left)
+            if node.right:
+                s.append(node.right)
+        return ans[::-1]
