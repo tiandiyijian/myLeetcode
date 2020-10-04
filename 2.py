@@ -40,3 +40,19 @@ class Solution:
         if carry:
             node.next = ListNode(1)
         return head.next
+
+    def addTwoNumbers2(self, l1: ListNode, l2: ListNode) -> ListNode:
+        head = dummy = ListNode(-1)
+        carry = 0
+        while l1 or l2 or carry:
+            n1 = l1.val if l1 else 0
+            n2 = l2.val if l2 else 0
+            tmp_sum = (n1 + n2 + carry) % 10
+            carry = (n1 + n2 + carry) // 10
+            head.next = ListNode(tmp_sum)
+            if l1:
+                l1 = l1.next
+            if l2:
+                l2 = l2.next
+            head = head.next
+        return dummy.next
