@@ -13,3 +13,14 @@ class Solution:
             slow = slow.next
             fast = fast.next.next
         return True
+    
+    def hasCycle2(self, head: ListNode) -> bool:
+        if not head or not head.next:
+            return False
+        a, b = head, head.next
+        while b and b.next:
+            if a is b:
+                return True
+            a = a.next
+            b = b.next.next
+        return False    
