@@ -1,8 +1,9 @@
 # Definition for singly-linked list.
 class ListNode:
-     def __init__(self, x):
-         self.val = x
-         self.next = None
+    def __init__(self, x):
+        self.val = x
+        self.next = None
+
 
 class Solution:
     def swapPairs(self, head: ListNode) -> ListNode:
@@ -23,3 +24,12 @@ class Solution:
             lastBack.next = q
             lastBack = p
         return Rhead
+
+    def swapPairs2(self, head: ListNode) -> ListNode:
+        if not head or not head.next:
+            return head
+        tmp = head.next.next
+        new_head = head.next
+        new_head.next = head
+        head.next = self.swapPairs(tmp)
+        return new_head
