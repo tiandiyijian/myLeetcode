@@ -25,6 +25,16 @@ class Solution:
         return reverse(a, b)
 
 
+    def reverseList2(self, head: ListNode) -> ListNode:
+        a, b = None, head
+        while b:
+            tmp = b.next
+            b.next = a
+            a = b
+            b = tmp
+        return a
+            
+
 def change_node(node):
     node = node.next
     return node
