@@ -1,9 +1,13 @@
+from typing import List
+
+
 # Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
+class TreeNode:
+    def __init__(self, x):
+        self.val = x
+        self.left = None
+        self.right = None
+
 
 class Solution:
     def preorderTraversal(self, root):
@@ -26,3 +30,23 @@ class Solution:
             stack.append(root)
             res.append(root.val)
             root = root.left
+
+    def preorderTraversal2(self, root: TreeNode) -> List[int]:
+        ans = []
+        node = root
+        while node:
+            if not node.left:
+                ans.append(node.val)
+                node = node.right
+            else:
+                pre = node.left
+                while pre.right and pre.right is not node:
+                    pre = pre.right
+                if pre.right is node:
+                    pre.right = None
+                    node = node.right
+                else:
+                    pre.right = node
+                    ans.append(node.val)
+                    node = node.left
+        return ans
