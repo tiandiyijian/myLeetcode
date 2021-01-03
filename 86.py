@@ -28,3 +28,21 @@ class Solution:
             head = head.next
         littleHead.next = B.next
         return L.next
+
+    def partition2(self, head: ListNode, x: int) -> ListNode:
+        pre = dummy_a = ListNode(-1)
+        post = dummy_b = ListNode(-1)
+
+        while head:
+            if head.val < x:
+                pre.next = head
+                pre = pre.next
+            else:
+                post.next = head
+                post = post.next
+            head = head.next
+        
+        post.next = None
+        pre.next = dummy_b.next
+
+        return dummy_a.next
