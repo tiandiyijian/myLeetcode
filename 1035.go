@@ -1,8 +1,4 @@
-package main
-
-import (
-	"fmt"
-)
+package leetcode
 
 /*
  * @lc app=leetcode.cn id=1035 lang=golang
@@ -36,8 +32,8 @@ func max(a, b int) int {
 }
 
 // @lc code=end
-func main() {
-	nums1 := []int{1, 4, 2}
-	nums2 := []int{1, 2, 4}
-	fmt.Println(maxUncrossedLines(nums1, nums2))
-}
+// func main() {
+// 	nums1 := []int{1, 4, 2}
+// 	nums2 := []int{1, 2, 4}
+// 	fmt.Println(maxUncrossedLines(nums1, nums2))
+// }
