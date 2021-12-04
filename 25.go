@@ -1,6 +1,4 @@
-package main
-
-import "fmt"
+package leetcode
 
 /*
  * @lc app=leetcode.cn id=25 lang=golang
@@ -65,8 +63,8 @@ func reverseKGroup(head *ListNode, k int) *ListNode {
 
 // @lc code=end
 
-func main() {
-	head := &ListNode{1, &ListNode{2, nil}}
-	ans := reverseKGroup(head, 2)
-	fmt.Println(ans.Val, ans.Next.Val)
-}
+// func main() {
+// 	head := &ListNode{1, &ListNode{2, nil}}
+// 	ans := reverseKGroup(head, 2)
+// 	fmt.Println(ans.Val, ans.Next.Val)
+// }
