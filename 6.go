@@ -1,4 +1,4 @@
-package main
+package leetcode
 
 import "fmt"
 
@@ -64,7 +64,7 @@ func convert(s string, numRows int) string {
 	return string(ans)
 }
 
-func main() {
-	s := "PAYPALISHIRING"
-	fmt.Println(convert(s, 3))
-}
+// func main() {
+// 	s := "PAYPALISHIRING"
+// 	fmt.Println(convert(s, 3))
+// }

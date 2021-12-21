@@ -1,6 +1,4 @@
-package main
-
-import "fmt"
+package leetcode
 
 func findTargetSumWays(nums []int, target int) int {
 	mp := map[int]int{nums[0]: 1}
@@ -29,7 +27,7 @@ func findTargetSumWays(nums []int, target int) int {
 	return mp[target]
 }
 
-func main() {
-	nums := []int{0, 0, 0, 1}
-	fmt.Println(findTargetSumWays(nums, 1))
-}
+// func main() {
+// 	nums := []int{0, 0, 0, 1}
+// 	fmt.Println(findTargetSumWays(nums, 1))
+// }
