@@ -1,0 +1,37 @@
+import math
+
+
+class Solution:
+    def repeatedStringMatch(self, a: str, b: str) -> int:
+        def kmp(q, p):
+            m, n = len(q), len(p)
+            next = [0] * n
+            j = 0
+            for i in range(1, n):
+                while j > 0 and p[i] != p[j]:
+                    j = next[j-1]
+                if p[i] == p[j]:
+                    j += 1
+                next[i] = j
+            i = j = 0
+            while i - j < m:
+                while j > 0 and q[i % m] != p[j]:
+                    j = next[j-1]
+                if q[i % m] == p[j]:
+                    j += 1
+                    if j == n:
+                        return i - j + 1
+                i += 1
+            return -1
+        
+        idx = kmp(a, b)
+        if idx == -1:
+            return -1
+        m, n = len(a), len(b)
+        if m - idx >= n:
+            return 1
+        return math.ceil((n - (m - idx)) / m) + 1
+
+a = "aaaaaaaaaaaaaaaaaaaaaab"
+b = "ba"
+print(Solution().repeatedStringMatch(a, b))
