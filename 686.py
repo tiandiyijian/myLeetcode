@@ -3,6 +3,7 @@ import math
 
 class Solution:
     def repeatedStringMatch(self, a: str, b: str) -> int:
+        # 如何更好地理解和掌握 KMP 算法? - 阮行止的回答 - 知乎https://www.zhihu.com/question/21923021/answer/1032665486
         def kmp(q, p):
             m, n = len(q), len(p)
             next = [0] * n
