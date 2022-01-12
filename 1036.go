@@ -1,6 +1,4 @@
-package main
-
-import "fmt"
+package leetcode
 
 var (
 	dx = [4]int{0, 0, -1, 1}
@@ -57,12 +55,12 @@ func bfs(x, y, tx, ty, max_area int, block map[[2]int]struct{}) bool {
 	return false
 }
 
-func main() {
-	blocked := [][]int{
-		{0, 1},
-		{1, 0},
-	}
-	source := []int{0, 0}
-	target := []int{0, 2}
-	fmt.Println(isEscapePossible(blocked, source, target))
-}
+// func main() {
+// 	blocked := [][]int{
+// 		{0, 1},
+// 		{1, 0},
+// 	}
+// 	source := []int{0, 0}
+// 	target := []int{0, 2}
+// 	fmt.Println(isEscapePossible(blocked, source, target))
+// }
