@@ -1,8 +1,7 @@
-package main
+package leetcode
 
 import (
 	"container/heap"
-	"fmt"
 )
 
 type Apple struct {
@@ -82,8 +81,8 @@ func eatenApples(apples []int, days []int) int {
 	return ans
 }
 
-func main() {
-	apples := []int{1, 2, 3, 5, 2}
-	days := []int{3, 2, 1, 4, 2}
-	fmt.Println(eatenApples(apples, days))
-}
+// func main() {
+// 	apples := []int{1, 2, 3, 5, 2}
+// 	days := []int{3, 2, 1, 4, 2}
+// 	fmt.Println(eatenApples(apples, days))
+// }
