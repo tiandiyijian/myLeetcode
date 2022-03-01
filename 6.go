@@ -1,6 +1,9 @@
 package leetcode
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 func convert(s string, numRows int) string {
 	if numRows == 1 {
@@ -62,6 +65,35 @@ func convert(s string, numRows int) string {
 		}
 	}
 	return string(ans)
+}
+
+func convert1(s string, numRows int) string {
+	if numRows == 1 {
+		return s
+	}
+	n := len(s)
+	var sb strings.Builder
+	sb.Grow(n)
+	cnt := numRows*2 - 2
+	group := n / cnt
+	base := group * cnt
+	for row := 0; row < numRows; row++ {
+
+		for g := 0; g < group; g++ {
+			sb.WriteByte(s[g*cnt+row])
+			if row == 0 || row == numRows-1 {
+				continue
+			}
+			sb.WriteByte(s[g*cnt+cnt-row])
+		}
+		if base+row < n {
+			sb.WriteByte(s[base+row])
+		}
+		if row < numRows-1 && base+cnt-row < n {
+			sb.WriteByte(s[base+cnt-row])
+		}
+	}
+	return sb.String()
 }
 
 // func main() {
