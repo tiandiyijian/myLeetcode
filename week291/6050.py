@@ -4,6 +4,7 @@ from collections import defaultdict
 class Solution:
 
     def appealSum(self, s: str) -> int:
+        # 其实直接遍历, 用一个长度26的数组记录每一个字母上一次出现的下标就可以
         n = len(s)
         mp = defaultdict(list)
         for i, c in enumerate(s):
