@@ -23,7 +23,8 @@ class Solution:
                 ans.append(word)
         return ans
 
-words = ["abc","deq","mee","aqq","dkd","ccc"]
+
+words = ["abc", "deq", "mee", "aqq", "dkd", "ccc"]
 # words = ['dkd']
-p="abb"
+p = "abb"
 print(Solution().findAndReplacePattern(words, p))
