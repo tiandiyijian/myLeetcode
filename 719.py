@@ -39,7 +39,28 @@ class Solution:
                 r = mid
         return r
 
+    def smallestDistancePair2(self, nums: List[int], k: int) -> int:
+        n = len(nums)
+        nums.sort()
+        def count(mid):
+            cnt = 0
+            i = 0
+            for j, num in enumerate(nums):
+                while num - nums[i] > mid:
+                    i += 1
+                cnt += j - i
+            return cnt
 
+        l, r = 0, nums[-1] - nums[0]
+        while l < r:
+            mid = (l + r) >> 1
+            cnt = count(mid)
+            if cnt >= k:
+                r = mid
+            else:
+                l = mid + 1
+        return r
+    
 nums = [62, 100, 4]
 k = 2
 # nums = [9,10,7,10,6,1,5,4,9,8]
