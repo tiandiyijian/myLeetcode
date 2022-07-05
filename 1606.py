@@ -1,15 +1,10 @@
 from typing import List
 import heapq
-
-from flask import request
-
 from sortedcontainers import SortedList
 
 
 class Solution:
-
-    def busiestServers(self, k: int, arrival: List[int],
-                       load: List[int]) -> List[int]:
+    def busiestServers(self, k: int, arrival: List[int], load: List[int]) -> List[int]:
         avaliable = SortedList(range(k))
         busy = []
         requests = [8] * k
