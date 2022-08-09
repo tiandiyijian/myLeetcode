@@ -3,7 +3,7 @@ from typing import List
 
 
 class Solution:
-    def minRefuelStops(
+    def minRefuelStops0(
         self, target: int, startFuel: int, stations: List[List[int]]
     ) -> int:
         n = len(stations)
@@ -19,4 +19,32 @@ class Solution:
             if i < n:
                 heappush(h, -stations[i][1])
                 prev = curr
+        return ans
+
+    def minRefuelStops(
+        self, target: int, startFuel: int, stations: List[List[int]]
+    ) -> int:
+        # 可以理解为路过加油站的时候可以先不加油只是记录下来
+        # 等到没油的时候再从之前路过的加油站里选择油最多的那个
+
+        loc = 0
+        ans = 0
+        remain = startFuel
+        q = []
+        idx = 0
+        n = len(stations)
+
+        while loc < target:
+            if remain == 0:
+                if q:
+                    remain = -heappop(q)
+                    ans += 1
+                else:
+                    return -1
+            loc += remain
+            remain = 0
+            while idx < n and stations[idx][0] <= loc:
+                heappush(q, -stations[idx][1])
+                idx += 1
+
         return ans
