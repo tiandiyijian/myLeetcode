@@ -1,5 +1,5 @@
 from collections import deque
-
+from typing import List
 
 class Solution:
     def secondMinimum(self, n: int, edges: List[List[int]], time: int, change: int) -> int:
