@@ -8,6 +8,11 @@ class Solution:
 
         @cache
         def dfs(pos: int, bound: bool, diff: bool) -> int:
+            # pos 是从左向右第几位
+            # bound 是当前位是否受到原值这一位最大值的约束
+            # 因为不能比原值大，也可以描述为当前位之前的位是否和原值一样
+            # diff 是是否包含2/5/6/9中至少一个
+            
             if pos == len(digits):
                 return int(diff)
 
